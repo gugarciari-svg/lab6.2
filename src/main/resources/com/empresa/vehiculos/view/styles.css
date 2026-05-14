@@ -1,0 +1,150 @@
+/* ============================================================
+   Sistema de Gestion de Vehiculos — styles.css
+   ============================================================ */
+
+/* ── Encabezado ─────────────────────────────────────────────── */
+.header {
+    -fx-background-color: #1a252f;
+}
+
+.header-title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #ecf0f1;
+}
+
+/* ── Contenedores ────────────────────────────────────────────── */
+.form-scroll {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.form-scroll .viewport {
+    -fx-background-color: #f4f6f8;
+}
+
+.form-container {
+    -fx-background-color: #f4f6f8;
+}
+
+.table-container {
+    -fx-background-color: #ffffff;
+}
+
+/* ── Tipografía ──────────────────────────────────────────────── */
+.section-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+.field-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #555555;
+    -fx-alignment: center-right;
+}
+
+.field-label-bold {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* ── Paneles específicos ─────────────────────────────────────── */
+.specific-panel {
+    -fx-background-color: #ddeaf7;
+    -fx-padding: 12;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #aac4e0;
+    -fx-border-width: 1;
+}
+
+/* ── Botones ─────────────────────────────────────────────────── */
+.btn-primary {
+    -fx-background-color: #27ae60;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-primary:hover    { -fx-background-color: #1e8449; }
+.btn-primary:disabled { -fx-background-color: #a9cfbf; -fx-text-fill: #eeeeee; }
+
+.btn-warning {
+    -fx-background-color: #e67e22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-warning:hover    { -fx-background-color: #ca6f1e; }
+.btn-warning:disabled { -fx-background-color: #d5b89b; -fx-text-fill: #eeeeee; }
+
+.btn-secondary {
+    -fx-background-color: #7f8c8d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 8 20 8 20;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-secondary:hover { -fx-background-color: #616a6b; }
+
+.btn-danger {
+    -fx-background-color: #e74c3c;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 6 16 6 16;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+.btn-danger:hover { -fx-background-color: #cb4335; }
+
+/* ── Etiqueta de estado ──────────────────────────────────────── */
+.status-label {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-min-height: 18px;
+}
+.status-success { -fx-text-fill: #27ae60; }
+.status-error   { -fx-text-fill: #e74c3c; }
+.status-warning { -fx-text-fill: #d35400; }
+
+/* ── Contador ────────────────────────────────────────────────── */
+.count-label {
+    -fx-text-fill: #7f8c8d;
+    -fx-font-size: 11px;
+    -fx-font-style: italic;
+}
+
+/* ── TableView ───────────────────────────────────────────────── */
+.vehicles-table {
+    -fx-border-color: #d5d8dc;
+    -fx-border-width: 1;
+}
+
+.vehicles-table .column-header-background {
+    -fx-background-color: #2c3e50;
+}
+
+.vehicles-table .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.vehicles-table .table-row-cell:selected {
+    -fx-background-color: #2980b9;
+    -fx-text-fill: white;
+}
+
+.vehicles-table .table-row-cell:hover:!selected {
+    -fx-background-color: #d6eaf8;
+}

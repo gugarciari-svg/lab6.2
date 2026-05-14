@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.empresa.vehiculos.controller.VehiculoController"
+            stylesheets="@styles.css"
+            prefWidth="1060" prefHeight="700">
+
+    <!-- ══════════════════════════════════════════
+         ENCABEZADO
+    ══════════════════════════════════════════ -->
+    <top>
+        <HBox styleClass="header" alignment="CENTER">
+            <padding><Insets top="14" right="20" bottom="14" left="20"/></padding>
+            <Label text="Sistema de Gestion de Vehiculos" styleClass="header-title"/>
+        </HBox>
+    </top>
+
+    <!-- ══════════════════════════════════════════
+         CUERPO PRINCIPAL
+    ══════════════════════════════════════════ -->
+    <center>
+        <SplitPane dividerPositions="0.38">
+
+            <!-- ══════════════════════════════════
+                 PANEL IZQUIERDO — FORMULARIO
+            ══════════════════════════════════ -->
+            <ScrollPane fitToWidth="true" styleClass="form-scroll">
+                <VBox spacing="10" styleClass="form-container">
+                    <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+                    <!-- Tipo de vehículo -->
+                    <VBox spacing="4">
+                        <Label text="Tipo de Vehiculo *" styleClass="field-label-bold"/>
+                        <ComboBox fx:id="tipoCombo"
+                                  onAction="#onTipoChanged"
+                                  maxWidth="Infinity"
+                                  promptText="-- Seleccione el tipo --"/>
+                    </VBox>
+
+                    <Separator/>
+
+                    <!-- ── Información general ── -->
+                    <Label text="Informacion General" styleClass="section-title"/>
+                    <GridPane hgap="10" vgap="8">
+                        <columnConstraints>
+                            <ColumnConstraints minWidth="110" prefWidth="115"/>
+                            <ColumnConstraints hgrow="ALWAYS"/>
+                        </columnConstraints>
+
+                        <Label text="Marca *:" styleClass="field-label"
+                               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                        <TextField fx:id="marcaField" promptText="Ej: Toyota"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Color *:" styleClass="field-label"
+                               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                        <TextField fx:id="colorField" promptText="Ej: Rojo"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                        <Label text="Placa *:" styleClass="field-label"
+                               GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                        <TextField fx:id="placaField" promptText="Ej: ABC-123"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                        <Label text="Modelo *:" styleClass="field-label"
+                               GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                        <TextField fx:id="modeloField" promptText="Ej: Corolla 2023"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                    </GridPane>
+
+                    <Separator/>
+
+                    <!-- ── Panel CAMION ── -->
+                    <VBox fx:id="camionPane" spacing="8" styleClass="specific-panel">
+                        <Label text="Datos del Camion" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="130" prefWidth="135"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <Label text="Capacidad (ton) *:" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="capacidadField" promptText="Ej: 5.5"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Tipo de Carga *:" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="tipoCargaField" promptText="Ej: Carga seca"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- ── Panel AUTOMOVIL ── -->
+                    <VBox fx:id="automovilPane" spacing="8" styleClass="specific-panel">
+                        <Label text="Datos del Automovil" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="130" prefWidth="135"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <Label text="Nro. de Puertas *:" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <Spinner fx:id="puertasSpinner" editable="false" prefWidth="140"
+                                     GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Disposicion *:" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <ComboBox fx:id="disposicionCombo" maxWidth="Infinity"
+                                      promptText="-- Seleccione --"
+                                      GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- ── Panel BUS MUNICIPAL ── -->
+                    <VBox fx:id="busMunicipalPane" spacing="8" styleClass="specific-panel">
+                        <Label text="Datos del Bus Municipal" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="110" prefWidth="115"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <Label text="Empresa *:" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="empresaMunField" promptText="Nombre de la empresa"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Chofer *:" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="choferMunField" promptText="Nombre del chofer"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <Label text="Ruta *:" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="rutaField" promptText="Ej: Norte - Sur"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- ── Panel BUS INTERMUNICIPAL ── -->
+                    <VBox fx:id="busInterPane" spacing="8" styleClass="specific-panel">
+                        <Label text="Datos del Bus Intermunicipal" styleClass="section-title"/>
+                        <GridPane hgap="10" vgap="8">
+                            <columnConstraints>
+                                <ColumnConstraints minWidth="130" prefWidth="135"/>
+                                <ColumnConstraints hgrow="ALWAYS"/>
+                            </columnConstraints>
+                            <Label text="Empresa *:" styleClass="field-label"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                            <TextField fx:id="empresaInterField" promptText="Nombre de la empresa"
+                                       GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                            <Label text="Chofer *:" styleClass="field-label"
+                                   GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                            <TextField fx:id="choferInterField" promptText="Nombre del chofer"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                            <Label text="Ciudad Origen *:" styleClass="field-label"
+                                   GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                            <TextField fx:id="ciudadOrigenField" promptText="Ciudad de origen"
+                                       GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                            <Label text="Ciudad Destino *:" styleClass="field-label"
+                                   GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                            <TextField fx:id="ciudadDestinoField" promptText="Ciudad de destino"
+                                       GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                        </GridPane>
+                    </VBox>
+
+                    <!-- Mensaje de estado -->
+                    <Label fx:id="statusLabel" wrapText="true" maxWidth="Infinity"
+                           styleClass="status-label"/>
+
+                    <!-- Botones de acción -->
+                    <HBox spacing="8" alignment="CENTER_LEFT">
+                        <Button fx:id="agregarBtn"    text="Agregar"
+                                onAction="#onAgregar"    styleClass="btn-primary"/>
+                        <Button fx:id="actualizarBtn" text="Actualizar"
+                                onAction="#onActualizar" styleClass="btn-warning" disable="true"/>
+                        <Button                        text="Limpiar"
+                                onAction="#onLimpiar"    styleClass="btn-secondary"/>
+                    </HBox>
+
+                </VBox>
+            </ScrollPane>
+
+            <!-- ══════════════════════════════════
+                 PANEL DERECHO — TABLA
+            ══════════════════════════════════ -->
+            <VBox spacing="10" styleClass="table-container">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+
+                <!-- Barra de título + botón Eliminar -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Vehiculos Registrados" styleClass="section-title"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Eliminar" onAction="#onEliminar" styleClass="btn-danger"/>
+                </HBox>
+
+                <!-- Tabla principal -->
+                <TableView fx:id="vehiculosTable" VBox.vgrow="ALWAYS" styleClass="vehicles-table">
+                    <columns>
+                        <TableColumn fx:id="tipoCol"     text="Tipo"     prefWidth="115"/>
+                        <TableColumn fx:id="marcaCol"    text="Marca"    prefWidth="90"/>
+                        <TableColumn fx:id="colorCol"    text="Color"    prefWidth="75"/>
+                        <TableColumn fx:id="placaCol"    text="Placa"    prefWidth="85"/>
+                        <TableColumn fx:id="modeloCol"   text="Modelo"   prefWidth="110"/>
+                        <TableColumn fx:id="detallesCol" text="Detalles" prefWidth="230"/>
+                    </columns>
+                    <placeholder>
+                        <Label text="No hay vehiculos registrados aun."/>
+                    </placeholder>
+                </TableView>
+
+                <!-- Contador -->
+                <Label fx:id="countLabel" text="Total: 0 vehiculos" styleClass="count-label"/>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+</BorderPane>
