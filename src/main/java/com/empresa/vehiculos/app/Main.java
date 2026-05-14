@@ -26,7 +26,7 @@ public class Main extends Application {
         Parent root = loader.load();
 
         Scene scene = new Scene(root);
-        stage.setTitle("Sistema de Gestion de Vehiculos xx");
+        stage.setTitle("Sistema de Gestion de Vehiculos 30");
         stage.setScene(scene);
         stage.setMinWidth(900);
         stage.setMinHeight(620);
