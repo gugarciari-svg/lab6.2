@@ -76,9 +76,9 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>com.ucv.lab06/com.empresa.vehiculos.app.Main</mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <launcher>com.hospital.gestion.app</launcher>
+                            <jlinkZipName>com.hospital.gestion.app</jlinkZipName>
+                            <jlinkImageName>com.hospital.gestion.app</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
